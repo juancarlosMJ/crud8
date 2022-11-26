@@ -62,7 +62,9 @@ class PersonasController extends Controller
 
     public function destroy($id)
     {
-        print_r($id);
+           $personas = Personas::find($id);
+        $personas->delete();
+        return redirect()->route("personas.index")->with("succes","Eliminado");
     
 }
 }
